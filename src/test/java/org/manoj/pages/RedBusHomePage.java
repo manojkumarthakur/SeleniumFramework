@@ -3,25 +3,70 @@ package org.manoj.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class RedBusHomePage extends BasePage{
+
+
+    @FindBy(xpath = "//div[text()='From']")
+    private WebElement from;
+
+    @FindBy(xpath = "//input[@id='srcDest']")
+    private WebElement fromInput;
+
+    @FindBy(xpath = "//div[@role='heading'][text()='Bangalore']")
+    private WebElement fromDropdown;
+
+    @FindBy(xpath = "//div[text()='To']")
+    private WebElement to;
+
+    @FindBy(xpath = "//div[contains(@class,'dateInputWrapper')]")
+    private WebElement datePicker;
+
+    @FindBy(xpath = "//button[contains(@class,'searchButton')]")
+    private WebElement searchButton;
+
 
     public RedBusHomePage(WebDriver driver) {
         super(driver);
     }
 
-    private WebElement from = driver.findElement(By.xpath("//div[text()='From']"));
-    private WebElement fromInput = driver.findElement(By.xpath("(//div[contains(@class,'srcDest')])[2]"));
-    private WebElement to = driver.findElement(By.xpath("//div[text()='From']"));
+    private void selectValueFromDropdown(String value){
+        WebElement valueSelector = driver.findElement(By.xpath(String.format("//div[@role='heading'][text()='%s']", value)));
+        valueSelector.click();
+    }
+    private void selectDateValue(int offsetFromToday){
+        WebElement valueSelector = driver.findElement(By.xpath(String.format("(//div[@data-datetype='AVAILABLE'])[%d]", offsetFromToday)));
+        valueSelector.click();
+    }
 
     public void setFrom(String fromLocation) {
         wait.until(ExpectedConditions.visibilityOf(from));
         from.click();
-//        fromInput.sendKeys(fromLocation);
-        testUiUtils.setValue(fromInput, fromLocation);
-        //div[@role='heading'][text()='Bangalore']
-
+        wait.until(ExpectedConditions.visibilityOf(fromInput));
+        fromInput.sendKeys(fromLocation);
+//        wait.until(ExpectedConditions.visibilityOf(fromDropdown));
+//        fromDropdown.click();
+        selectValueFromDropdown(fromLocation);
     }
 
+    public void setTo(String toLocation) {
+//        wait.until(ExpectedConditions.visibilityOf(to));
+//        to.click();
+        wait.until(ExpectedConditions.visibilityOf(fromInput));
+        fromInput.sendKeys(toLocation);
+//        wait.until(ExpectedConditions.visibilityOf(fromDropdown));
+//        fromDropdown.click();
+        selectValueFromDropdown(toLocation);
+    }
+
+    public void selectDate(int offsetFromToday) {
+        datePicker.click();
+        selectDateValue(offsetFromToday);
+    }
+
+    public void clickSearch() {
+        searchButton.click();
+    }
 }

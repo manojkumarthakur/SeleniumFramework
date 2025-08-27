@@ -15,4 +15,8 @@ public class TestUiUtils {
         JavascriptExecutor jse = (JavascriptExecutor)driver;
         jse.executeScript("arguments[0].setAttribute('value', '" + value +"')", element);
     }
+    public void setInnerHTML(WebElement element, String value){
+        JavascriptExecutor jse = (JavascriptExecutor)driver;
+        jse.executeScript("arguments[0].setAttribute('innerHTML', '" + value +"')", element);
+    }
 }
