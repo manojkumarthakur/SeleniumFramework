@@ -1,3 +1,3 @@
-Basic Framework using
-    Selenium 4
-    TestNG
+# Selenium Basic Framework using
+    _Selenium 4_
+    _TestNG_   
