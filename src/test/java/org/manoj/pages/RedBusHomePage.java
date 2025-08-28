@@ -46,18 +46,13 @@ public class RedBusHomePage extends BasePage{
         from.click();
         wait.until(ExpectedConditions.visibilityOf(fromInput));
         fromInput.sendKeys(fromLocation);
-//        wait.until(ExpectedConditions.visibilityOf(fromDropdown));
-//        fromDropdown.click();
         selectValueFromDropdown(fromLocation);
     }
 
     public void setTo(String toLocation) {
-//        wait.until(ExpectedConditions.visibilityOf(to));
-//        to.click();
+        // To is clicked by default, explicit click is not possible
         wait.until(ExpectedConditions.visibilityOf(fromInput));
         fromInput.sendKeys(toLocation);
-//        wait.until(ExpectedConditions.visibilityOf(fromDropdown));
-//        fromDropdown.click();
         selectValueFromDropdown(toLocation);
     }
 

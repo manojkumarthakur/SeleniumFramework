@@ -43,7 +43,7 @@ public class RedBusCheckBookingTest extends BaseTest{
 
 
     @Test(priority = 2)
-    public void checkAvailibility() {
+    public void checkAvailability() {
         seatSelectionPage = new SeatSelectionPage(driver);
         TestUtils.sleep(2000);
         System.out.println("Total available seats are: " + seatSelectionPage.availableSeatsCount());
