@@ -1,3 +1,4 @@
 # Selenium Basic Framework using
-    _Selenium 4_
-    _TestNG_   
+    1. Selenium 4
+    2. TestNG
+    3. Maven
