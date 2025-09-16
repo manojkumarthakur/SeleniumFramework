@@ -1,11 +1,16 @@
 package org.manoj.tests;
 
+import org.manoj.Utils.ScreenshotsUtil;
 import org.manoj.Utils.TestUtils;
+import org.manoj.listeners.MyITestListener;
 import org.manoj.pages.RedBusHomePage;
 import org.manoj.pages.SearchResultPage;
 import org.manoj.pages.SeatSelectionPage;
+import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+@Listeners(MyITestListener.class)
 public class RedBusCheckBookingTest extends BaseTest{
 
     public final String redBusURL = "https://www.redbus.in/";
@@ -15,9 +20,6 @@ public class RedBusCheckBookingTest extends BaseTest{
     private RedBusHomePage homePage;
     private SearchResultPage resultPage;
     private SeatSelectionPage seatSelectionPage;
-
-
-
 
     @Test(priority = 0, groups = {"sanity"})
     public void navigateToRedBus() {
@@ -31,6 +33,7 @@ public class RedBusCheckBookingTest extends BaseTest{
 //        TestUtils.sleep(2000);
         homePage.selectDate(1);
         homePage.clickSearch();
+        new ScreenshotsUtil(driver).captureScreenShot("Manoj");
     }
 
     @Test(priority = 1)
@@ -51,7 +54,12 @@ public class RedBusCheckBookingTest extends BaseTest{
         int[] minMaxPrice = seatSelectionPage.minMaxSeatCharges();
         System.out.println("Minimum ticket price is : " + minMaxPrice[0]);
         System.out.println("Maximum ticket price is : " + minMaxPrice[1]);
+        Assert.assertTrue(false);
     }
-
+//
+//    @Test(timeOut = 1000)
+//    public void failingTest(){
+//        TestUtils.sleep(2000);
+//    }
 
 }

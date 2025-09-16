@@ -17,9 +17,6 @@ public class RedBusCheckBookingTest2 extends BaseTest{
     private SearchResultPage resultPage;
     private SeatSelectionPage seatSelectionPage;
 
-
-
-
     @Test(priority = 0, groups = {"sanity"})
     public void navigateToRedBus2() {
         driver.get(redBusURL);
@@ -34,6 +31,7 @@ public class RedBusCheckBookingTest2 extends BaseTest{
         homePage.clickSearch();
 //        Assert.assertTrue(false);
     }
+
 
     @Test(priority = 1, enabled = false)
     public void selectBus() {

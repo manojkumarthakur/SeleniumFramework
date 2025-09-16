@@ -1,4 +1,5 @@
 package org.manoj.tests;
+import org.manoj.Utils.TestUtils;
 import org.testng.annotations.Test;
 
 public class GroupedTest {
@@ -17,4 +18,5 @@ public class GroupedTest {
     public void testMethodThree() {
         System.out.println("This is both a sanity and regression test");
     }
+
 }
