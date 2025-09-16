@@ -4,9 +4,10 @@ import org.manoj.Utils.TestUtils;
 import org.manoj.pages.RedBusHomePage;
 import org.manoj.pages.SearchResultPage;
 import org.manoj.pages.SeatSelectionPage;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class RedBusCheckBookingTest extends BaseTest{
+public class RedBusCheckBookingTest2 extends BaseTest{
 
     public final String redBusURL = "https://www.redbus.in/";
     public static String from = "Bangalore";
@@ -20,7 +21,7 @@ public class RedBusCheckBookingTest extends BaseTest{
 
 
     @Test(priority = 0, groups = {"sanity"})
-    public void navigateToRedBus() {
+    public void navigateToRedBus2() {
         driver.get(redBusURL);
         homePage = new RedBusHomePage(driver);
 //        TestUtils.sleep(2000);
@@ -31,9 +32,10 @@ public class RedBusCheckBookingTest extends BaseTest{
 //        TestUtils.sleep(2000);
         homePage.selectDate(1);
         homePage.clickSearch();
+//        Assert.assertTrue(false);
     }
 
-    @Test(priority = 1)
+    @Test(priority = 1, enabled = false)
     public void selectBus() {
         resultPage = new SearchResultPage(driver);
         TestUtils.sleep(2000);
@@ -42,7 +44,7 @@ public class RedBusCheckBookingTest extends BaseTest{
     }
 
 
-    @Test(priority = 2)
+    @Test(priority = 2, enabled = false)
     public void checkAvailability() {
         seatSelectionPage = new SeatSelectionPage(driver);
         TestUtils.sleep(2000);

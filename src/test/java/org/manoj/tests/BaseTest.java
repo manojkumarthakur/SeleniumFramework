@@ -8,7 +8,7 @@ import org.testng.annotations.BeforeClass;
 
 import java.time.Duration;
 
-public class BaseTest {
+public abstract class BaseTest {
 
     protected WebDriver driver;
 
@@ -16,14 +16,14 @@ public class BaseTest {
         this.driver = new ChromeDriver();
     }
 
-    @BeforeClass
+    @BeforeClass(alwaysRun = true)
     public void setUp(){
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
     }
 
-    @AfterClass
+    @AfterClass(alwaysRun = true)
     public void tearDown() {
         if (driver!= null)
             driver.quit();

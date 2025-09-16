@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="TestNgSuite">
+    <test name="RedbusTests" parallel="classes" thread-count="5">
+<!--        <groups>-->
+<!--            <run>-->
+<!--                <include name="sanity"/>-->
+<!--            </run>-->
+<!--        </groups>-->
+        <classes>
+            <class name="org.manoj.tests.RedBusCheckBookingTest"/>
+            <class name="org.manoj.tests.RedBusCheckBookingTest2"/>
+            <class name="org.manoj.tests.GroupedTest"/>
+        </classes>
+    </test>
+</suite>
