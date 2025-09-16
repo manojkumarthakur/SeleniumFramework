@@ -33,7 +33,6 @@ public class RedBusCheckBookingTest extends BaseTest{
 //        TestUtils.sleep(2000);
         homePage.selectDate(1);
         homePage.clickSearch();
-        new ScreenshotsUtil(driver).captureScreenShot("Manoj");
     }
 
     @Test(priority = 1)
